@@ -1,0 +1,11 @@
+
+<!--<collection collection='tasks'></collection>-->
+<!--<my-widget2 text="{{member}}"></my-widget2>http://plnkr.co/edit/6KxHY8ZpE83Z2PeNWlYi?p=preview  
+
+	http://thesmithfam.org/blog/2012/12/17/communicating-between-directives-in-angularjs/
+-->
+<ul>
+	<member ng-repeat="member in collection" member="member">
+		<li ng-click="decrement(member)">{{member.name}}</li>
+	</member>
+</ul>
