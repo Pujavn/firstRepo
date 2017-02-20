@@ -13,23 +13,60 @@
   <link href="bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <ul class="menu">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#myPage">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#myPage">HOME</a></li>
+          <li><a href="#band">BAND</a></li>
+          <li><a href="#tour">TOUR</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Merchandise</a></li>
+              <li><a href="#">Extras</a></li>
+              <li><a href="#">Media</a></li> 
+            </ul>
+          </li>
+          <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--<ul class="menu">
     <li><a href="#!/view1">view1</a></li>
     <li><a href="#!/view2">view2</a></li>
     <li><a href="#!/view3">Tabs Example</a></li>
-	<li><a ng-click='increment()' href="#!/menu">MenuList</a></li>
+	 <li><a ng-click='increment()' href="#!/menu">MenuList</a></li>
   </ul>
-  // register controller in html
+  // register controller in html-->
   <div data-ng-controller="dashboardCtrl" data-ng-init="init()">
-    <div><collection collection='test'></collection></div>
+    <div class="row">
+      <div class="col-lg-3">
+        <collection collection='test'clicked="clickedI"></collection>
+      </div>
+      <div class="col-lg-6">
+        <view clicked="clickedI"><view>
+      </div>
+    </div>
   </div>
-  <div ng-view></div>
 
-  <div >Angular seed app: v<span app-version></span></div>
-
-  <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <!--<div ng-view></div>
+  <div >Angular seed app: v<span app-version></span></div>-->
+  
   <script src="angular.js"></script>
   <script src="angular-route.js"></script>
+  <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>

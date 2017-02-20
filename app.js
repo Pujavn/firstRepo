@@ -14,41 +14,22 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 
   $routeProvider.otherwise({redirectTo: '/view1'});
 }])
-.controller('dashboardCtrl', function ($scope, nukeService) {
+.controller('dashboardCtrl', function ($scope, menuService) {
 	//$scope.init = function() {
        $scope.test = [
 		{
-			name: 'India',
-			children: [
-				{
-					name: 'Italy',
-					children: [
-						{
-							name: 'Rome'
-						},
-						{
-							name: 'Milan'
-						}
-					]
-				}, 
-				{
-					name: 'Spain'
-				}
-			]
+			name: 'Home'
 		}, 
 		{
-			name: 'Asia',
-			children: [
-				{
-					name: 'Brasil'
-				},
-				{
-					name: 'Peru'
-				}
-			]
+			name: 'Page1'
+		},
+		{
+			name: 'Page3'
+		},
+		{
+			name: 'Page4'
 		}
 	];
-       alert($scope.test);
     //}
     
 });

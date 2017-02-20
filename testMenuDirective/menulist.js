@@ -14,17 +14,16 @@ angular.module('myApp.testMenuDirective', ['ngRoute'])
 		replace: true,
 		scope: {
 			//collection: '=tasks'
-			collection: '='
+			collection: '=',
+			clicked : "=clicked"
 		},
 		//template: '<ul><member ng-repeat="member in collection" member="member"><li ng-click="decrement(member)">{{member.name}}</li></member></ul>',
 		templateUrl:'testMenuDirective/menuTemplate.html',
 		link: function (scope, element, attrs) {
 			scope.decrement = function(member) {
-               alert(member.name);
+               //alert(member.name);
+               scope.clicked = member.name;
             }
-            /*scope.increment = function(member) {
-               alert(member.id);
-            }*/
 			/*if (angular.isArray(scope.member.children)) {
 				element.append("<collection collection='member.children'></collection>"); 
 				$compile(element.contents())(scope)
@@ -32,28 +31,7 @@ angular.module('myApp.testMenuDirective', ['ngRoute'])
 		}
 	}
 })
-
-/*.directive('member', function ($compile) {
-	return {
-		restrict: "E",
-		replace: true,
-		scope: {
-			member: '='
-		},
-		template: '<li ng-click="decrement(member)">{{member.name}}<button ng-click="decrement(member)">{{member.name}}</button></li>',
-		link: function (scope, element, attrs) {
-			scope.decrement = function(member) {
-               alert(member.name);
-            }
-			/*if (angular.isArray(scope.member.children)) {
-				element.append("<collection collection='member.children'></collection>"); 
-				$compile(element.contents())(scope)
-			}
-		}
-	}
-})*/
- 
-.controller('testMenuCtrl', function ($scope,nukeService) {
+.controller('testMenuCtrl', function ($scope,menuService) {
 	/*$scope.tasks = [
 		{
 			name: 'Europe',
@@ -91,17 +69,17 @@ angular.module('myApp.testMenuDirective', ['ngRoute'])
 	//console.log($scope.tasks);
 })
 
-.factory('nukeService', function($rootScope, $http) {
+.factory('menuService', function($rootScope, $http) {
 	//alert('hi');
-    var nukeService = {};
+    var menuService = {};
 
-    nukeService.data = {};
+    menuService.data = {};
 
     //Gets the list of nuclear weapons
-    nukeService.getNukes = function() {
+    menuService.getMenu = function() {
         /*$http.get('nukes/nukes.json')
             .success(function(data) {
-                nukeService.data.nukes = data;
+                menuService.data.menu = data;
             });*/
 		data = [
 		{
@@ -135,30 +113,10 @@ angular.module('myApp.testMenuDirective', ['ngRoute'])
 			]
 		}
 	];
-		nukeService.data = data;
+		menuService.data = data;
 		//console.log(nukeService.data);
-        return nukeService.data;
+        return menuService.data;
     };
 
-    return nukeService;
+    return menuService;
 });
-/*.directive("myWidget2", function() {
-  return {
-    restrict: "E",
-    template: "<p></p>",
-    scope: {
-      text: "@text"
-    }
-  };
-})*/
-
-/*angular.module('recipeapp').service('recipeService',['$http', function($http){
-
-  // expose a saveRecipe function from your service
-  // that takes a recipe object
-  this.saveRecipe = function(recipe){
-      // return a Promise object so that the caller can handle success/failure
-      return $http({ method: 'POST', url: '/api/recipe/add', data: recipe});
-  }
-
-}]);*/
